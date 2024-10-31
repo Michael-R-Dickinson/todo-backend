@@ -1,15 +1,20 @@
 import Fastify from "fastify"
+import prismaPlugin from "./plugins/prisma.ts"
+import userRoutes from "./routes/userRoutes.ts"
 
-const fastify = Fastify({
+const app = Fastify({
   logger: true,
 })
+app.register(prismaPlugin)
 
-fastify.get("/", async (request, reply) => {
+app.register(userRoutes)
+
+app.get("/", async (request, reply) => {
   reply.send({ hello: "world" })
 })
 
-fastify.listen({ port: 3000 }, function (err, address) {
+app.listen({ port: 3000 }, function (err, address) {
   if (err) {
-    fastify.log.error(err)
+    app.log.error(err)
   }
 })
