@@ -1,5 +1,6 @@
 import { FastifyInstance } from "fastify"
 import singleUserRoutes from "../user/userRoutes"
+import { UserCreateDTO } from "./allUsers.dto"
 
 const allUsersRoutes = (app: FastifyInstance) => {
   app.register(singleUserRoutes, { prefix: "/:userId" })
