@@ -13,7 +13,7 @@ const taskRoutes = (app: FastifyInstance) => {
         },
       })
 
-      reply.send({ task: JSON.stringify(task) })
+      reply.send(task)
     }
   )
 }

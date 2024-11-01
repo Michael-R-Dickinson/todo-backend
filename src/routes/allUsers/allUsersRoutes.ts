@@ -7,7 +7,7 @@ const allUsersRoutes = (app: FastifyInstance) => {
 
   app.get("/", async (request, reply) => {
     const users = await app.prisma.user.findMany()
-    reply.send({ users: JSON.stringify(users) })
+    reply.send(users)
   })
 
   app.post<{ Body: UserCreateDTO }>("/", async (request, reply) => {
@@ -18,7 +18,7 @@ const allUsersRoutes = (app: FastifyInstance) => {
       },
     })
 
-    reply.send({ user: JSON.stringify(user) })
+    reply.send(user)
   })
 }
 
