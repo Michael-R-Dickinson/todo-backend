@@ -1,13 +1,13 @@
 import Fastify from "fastify"
 import prismaPlugin from "./plugins/prisma.ts"
-import userRoutes from "./routes/userRoutes.ts"
+import allUsersRoutes from "./routes/allUsers/allUsersRoutes.ts"
 
 const app = Fastify({
   logger: true,
 })
 app.register(prismaPlugin)
 
-app.register(userRoutes)
+app.register(allUsersRoutes, { prefix: "/users" })
 
 app.get("/", async (request, reply) => {
   reply.send({ hello: "world" })
