@@ -1,7 +1,6 @@
 import Fastify from "fastify"
 import prismaPlugin from "./plugins/prisma.ts"
 import allUsersRoutes from "./routes/allUsers/allUsersRoutes.ts"
-import pino from "pino"
 
 const app = Fastify({
   logger: {
