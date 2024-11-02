@@ -10,7 +10,7 @@ const singleUserRoutes = (app: FastifyInstance) => {
     const user = await app.prisma.user.findUnique({
       where: { id: request.params.userId },
     })
-    reply.send({ user: JSON.stringify(user) })
+    reply.send(user)
   })
 }
 
