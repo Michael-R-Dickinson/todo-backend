@@ -30,6 +30,7 @@ model Task {
   completed   Boolean
   dueDate     DateTime
   doDate      DateTime
+  todayTask   Boolean
   emergency   Boolean
   locational  Boolean
   storyPoints Int
