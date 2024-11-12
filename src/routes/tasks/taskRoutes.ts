@@ -16,6 +16,14 @@ const taskRoutes = (app: FastifyInstance) => {
       reply.send(task)
     }
   )
+
+  app.get<{ Params: UserQueryDTO }>("/", async (request, reply) => {
+    const tasks = await app.prisma.task.findMany({
+      where: { userId: request.params.userId },
+    })
+
+    reply.send(tasks)
+  })
 }
 
 export default taskRoutes

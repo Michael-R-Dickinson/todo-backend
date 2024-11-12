@@ -1,6 +1,7 @@
 import Fastify from "fastify"
 import prismaPlugin from "./plugins/prisma.ts"
-import allUsersRoutes from "./routes/allUsers/allUsersRoutes.ts"
+import allUsersRoutes from "./routes/allUsers/userRoutes.ts"
+import taskRoutes from "./routes/tasks/taskRoutes.ts"
 
 const app = Fastify({
   logger: {
@@ -15,6 +16,7 @@ const app = Fastify({
 app.register(prismaPlugin)
 
 app.register(allUsersRoutes, { prefix: "/users" })
+app.register(taskRoutes, { prefix: "/tasks" })
 
 app.get("/", async (request, reply) => {
   reply.send({ hello: "world" })
