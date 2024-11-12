@@ -1,3 +1,5 @@
+import { UserQueryDTO } from "../allUsers/allUsers.dto"
+
 export interface TaskCreateDTO {
   name: string
   description: string
@@ -10,4 +12,9 @@ export interface TaskCreateDTO {
   ordering: number
   completed: boolean
   projectId: string
+}
+
+export interface TaskQueryDTO {
+  taskId: string
+  userId: UserQueryDTO["userId"]
 }

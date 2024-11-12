@@ -16,7 +16,6 @@ const app = Fastify({
 app.register(prismaPlugin)
 
 app.register(allUsersRoutes, { prefix: "/users" })
-app.register(taskRoutes, { prefix: "/tasks" })
 
 app.get("/", async (request, reply) => {
   reply.send({ hello: "world" })
